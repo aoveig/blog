@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.flex-b-c {
+  @apply flex justify-between items-center;
+}
+
+.flex-c-c {
+  @apply flex justify-center items-center;
+}
