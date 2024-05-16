@@ -33,13 +33,19 @@ const menuList = [
       <div class="header_menu">
         <ul>
           <li v-for="item of menuList" :key="item.path">
-            {{ item.name }}
+            <router-link :to="item.path">
+              {{ item.name }}
+            </router-link>
           </li>
         </ul>
       </div>
     </div>
     <div class="app-content">
-      <RouterView />
+      <router-view v-slot="{ Component }">
+        <transition>
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </div>
     <div class="app-footer flex-c-c">
       <p>2024-2024</p>

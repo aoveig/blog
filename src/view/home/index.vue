@@ -1,31 +1,46 @@
 <script setup lang="ts">
+import { ElTooltip } from "element-plus";
+
 const lineList = [
   {
     name: "推特",
-    icon: "",
-    line: ""
+    icon: "twitter.svg",
+    line: "https://x.com",
+    remark: "123456789"
   },
   {
     name: "QQ",
-    icon: "",
-    line: ""
+    icon: "qq.svg",
+    line: "https://qq.com",
+    remark: "123456789"
   },
   {
     name: "微信",
-    icon: "",
-    line: ""
+    icon: "weixin.svg",
+    line: "https://qq.com",
+    remark: "123456789"
   },
   {
     name: "GitHub",
-    icon: "",
-    line: ""
+    icon: "github.svg",
+    line: "https://github.com",
+    remark: "123456789"
   },
   {
     name: "Gitee",
-    icon: "",
-    line: ""
+    icon: "gitee.svg",
+    line: "https://gitee.com",
+    remark: "123456789"
   }
 ];
+
+// 获取动态拼接的图标路径
+function getIconUrl(icon: string) {
+  return new URL(
+    `../../assets/link/${icon}`,
+    import.meta.url
+  ).href;
+}
 </script>
 
 <template>
@@ -42,11 +57,22 @@ const lineList = [
     </p>
     <ul class="flex-b-c">
       <li
-        class="mx-[5px]"
+        class="mx-[5px] animate-pulse hover:cursor-pointer"
         v-for="item of lineList"
-        :key="item.name"
+        :key="item.icon"
       >
-        {{ item.name }}
+        <el-tooltip
+          effect="dark"
+          :content="item.remark"
+          placement="bottom"
+        >
+          <a :href="item.line" target="_blank">
+            <img
+              class="w-[20px] h-[20px]"
+              :src="getIconUrl(item.icon)"
+            />
+          </a>
+        </el-tooltip>
       </li>
     </ul>
   </div>
