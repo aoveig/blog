@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import { useRouter, useRoute } from "vue-router";
+
+const $router = useRouter();
+const $route = useRoute();
+const toPath = (path: string) => {
+  $router.push(path);
+};
+
 // 菜单列表
 const menuList = [
   {
@@ -32,10 +40,15 @@ const menuList = [
       </div>
       <div class="header_menu">
         <ul>
-          <li v-for="item of menuList" :key="item.path">
-            <router-link :to="item.path">
-              {{ item.name }}
-            </router-link>
+          <li
+            v-for="item of menuList"
+            :class="{
+              'li--active': $route.path === item.path
+            }"
+            :key="item.path"
+            @click="toPath(item.path)"
+          >
+            {{ item.name }}
           </li>
         </ul>
       </div>
@@ -65,7 +78,13 @@ const menuList = [
 
   .app-header {
     padding: 10px;
-    box-shadow: 0px 1px 2px #eee;
+    box-shadow: 0px 3px 10px #eee;
+    position: sticky;
+    top: 0px;
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 999;
 
     .header_logo {
       font-size: 22px;
@@ -77,6 +96,29 @@ const menuList = [
 
         > li {
           padding: 10px;
+          background: linear-gradient(
+              to right,
+              #22c1c3,
+              #22c1c3
+            )
+            no-repeat;
+          background-size: 0% 3px;
+          background-position: right bottom;
+          transition: background-size 0.2s;
+          color: #555;
+        }
+
+        > li:hover {
+          background-position: left bottom;
+          background-size: 100% 3px;
+          cursor: pointer;
+          color: #22c1c3;
+        }
+
+        .li--active {
+          color: #22c1c3;
+          background-size: 100% 3px;
+          font-weight: bolder;
         }
       }
     }

@@ -22,12 +22,16 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "types": [
-      "vite/client"
+      "vite/client",
+      "vite-plugin-pages/client"
     ],
     "baseUrl": ".",
     "paths": {
       "~/*": [
         "src/*"
+      ],
+      "pages/*": [
+        "pages/*"
       ]
     }
   },

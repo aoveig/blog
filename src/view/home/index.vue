@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ElTooltip } from "element-plus";
-import readme from "./readme.md";
+import readme from "pages/rests/readme.md";
 
 const lineList = [
   {
@@ -76,7 +76,7 @@ function getIconUrl(icon: string) {
         </el-tooltip>
       </li>
     </ul>
-    <div class="w-[500px] mt-[50px]">
+    <div class="w-[650px] mt-[50px]">
       <readme></readme>
     </div>
   </div>

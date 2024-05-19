@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 import Layout from "~/layout/index.vue";
+import pages from "~pages";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,7 +16,8 @@ const routes: RouteRecordRaw[] = [
       {
         path: "/article",
         name: "Article",
-        component: () => import("~/view/article/index.vue")
+        component: () => import("~/view/article/index.vue"),
+        children: pages
       },
       {
         path: "/archive",
