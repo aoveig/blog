@@ -15,9 +15,12 @@
   },
   "devDependencies": {
     "@iconify/vue": "^4.1.2",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.12.11",
     "@vitejs/plugin-vue": "^5.0.4",
     "autoprefixer": "^10.4.19",
+    "fs-extra": "^11.2.0",
+    "gray-matter": "^4.0.3",
     "postcss": "^8.4.38",
     "sass": "^1.77.1",
     "tailwindcss": "^3.4.3",

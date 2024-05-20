@@ -4,6 +4,8 @@ import { resolve } from "node:path";
 import ElementPlus from "unplugin-element-plus/vite";
 import Markdown from "unplugin-vue-markdown/vite";
 import Pages from "vite-plugin-pages";
+import fs from "fs-extra";
+import matter from "gray-matter";
 
 const pathResolve = (dir: string): string => {
   return resolve(__dirname, dir);
@@ -25,10 +27,16 @@ export default defineConfig({
       extensions: ["vue", "md"],
       dirs: "pages/blog",
       extendRoute(route) {
+        const path = resolve(
+          __dirname,
+          route.component.slice(1)
+        );
+        const md = fs.readFileSync(path, "utf-8");
+        const { data } = matter(md);
         route.path = `/article${route.path}`;
         return {
           ...route,
-          meta: { auth: true }
+          meta: { ...data }
         };
       }
     })

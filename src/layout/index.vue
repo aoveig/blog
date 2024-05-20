@@ -55,7 +55,7 @@ const menuList = [
     </div>
     <div class="app-content">
       <router-view v-slot="{ Component }">
-        <transition>
+        <transition name="slide-fade" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
