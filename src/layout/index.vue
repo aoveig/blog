@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from "vue-router";
+import personal from "~/assets/config/personal.config.json";
 
 const $router = useRouter();
 const $route = useRoute();
@@ -20,13 +21,8 @@ const menuList = [
     icon: ""
   },
   {
-    name: "归档",
-    path: "/archive",
-    icon: ""
-  },
-  {
-    name: "分类",
-    path: "/classify",
+    name: "项目",
+    path: "/project",
     icon: ""
   }
 ];
@@ -36,7 +32,7 @@ const menuList = [
   <div class="app-layout">
     <div class="app-header flex-b-c">
       <div class="header_logo">
-        <p>blog-template</p>
+        <p>{{ personal.logo }}</p>
       </div>
       <div class="header_menu">
         <ul>
@@ -61,9 +57,9 @@ const menuList = [
       </router-view>
     </div>
     <div class="app-footer flex-c-c">
-      <p>2024-2024</p>
-      <p>blog-template</p>
-      <p>hello world</p>
+      <p v-for="item of personal.footer">
+        {{ item }}
+      </p>
     </div>
   </div>
 </template>
@@ -96,11 +92,7 @@ const menuList = [
 
         > li {
           padding: 10px;
-          background: linear-gradient(
-              to right,
-              #22c1c3,
-              #22c1c3
-            )
+          background: linear-gradient(to right, #000, #000)
             no-repeat;
           background-size: 0% 3px;
           background-position: right bottom;
@@ -112,11 +104,11 @@ const menuList = [
           background-position: left bottom;
           background-size: 100% 3px;
           cursor: pointer;
-          color: #22c1c3;
+          color: #000;
         }
 
         .li--active {
-          color: #22c1c3;
+          color: #000;
           background-size: 100% 3px;
           font-weight: bolder;
         }

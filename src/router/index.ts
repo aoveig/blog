@@ -20,14 +20,9 @@ const routes: RouteRecordRaw[] = [
         children: pages
       },
       {
-        path: "/archive",
-        name: "Archive",
-        component: () => import("~/view/archive/index.vue")
-      },
-      {
-        path: "/classify",
-        name: "Classify",
-        component: () => import("~/view/classify/index.vue")
+        path: "/project",
+        name: "Project",
+        component: () => import("~/view/project/index.vue")
       }
     ]
   }

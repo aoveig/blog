@@ -1,39 +1,7 @@
 <script setup lang="ts">
 import { ElTooltip } from "element-plus";
-import about from "pages/rests/about.md";
-
-const lineList = [
-  {
-    name: "推特",
-    icon: "twitter.svg",
-    line: "https://x.com",
-    remark: "123456789"
-  },
-  {
-    name: "QQ",
-    icon: "qq.svg",
-    line: "https://qq.com",
-    remark: "123456789"
-  },
-  {
-    name: "微信",
-    icon: "weixin.svg",
-    line: "https://qq.com",
-    remark: "123456789"
-  },
-  {
-    name: "GitHub",
-    icon: "github.svg",
-    line: "https://github.com",
-    remark: "123456789"
-  },
-  {
-    name: "Gitee",
-    icon: "gitee.svg",
-    line: "https://gitee.com",
-    remark: "123456789"
-  }
-];
+import about from "./about.md";
+import personal from "~/assets/config/personal.config.json";
 
 // 获取动态拼接的图标路径
 function getIconUrl(icon: string) {
@@ -50,16 +18,16 @@ function getIconUrl(icon: string) {
       class="head-portrait home_space-between"
       src="../../assets/tx.jpg"
     />
-    <p class="home_name home_space-between">
-      雨夜带刀不带伞
+    <p class="text-[16px] home_space-between">
+      {{ personal.name }}
     </p>
-    <p class="home_introduction home_space-between">
-      一个不会写代码的小说迷
+    <p class="text-[14px] text-[#999] home_space-between">
+      {{ personal.introduction }}
     </p>
     <ul class="flex-b-c">
       <li
         class="mx-[5px] animate-pulse hover:cursor-pointer"
-        v-for="item of lineList"
+        v-for="item of personal.mediaAccount"
         :key="item.icon"
       >
         <el-tooltip
@@ -95,15 +63,6 @@ function getIconUrl(icon: string) {
     height: 70px;
     border-radius: 50%;
     box-shadow: 0px 0px 2px #000;
-  }
-
-  .home_name {
-    font-size: 16px;
-  }
-
-  .home_introduction {
-    font-size: 14px;
-    color: #999;
   }
 }
 

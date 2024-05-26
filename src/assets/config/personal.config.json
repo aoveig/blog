@@ -1,0 +1,42 @@
+{
+  "logo": "blog-template",
+  "name": "雨夜带刀不带伞",
+  "introduction": "一个不会写代码的小说迷",
+  "mediaAccount": [
+    {
+      "name": "推特",
+      "icon": "twitter.svg",
+      "line": "https://x.com",
+      "remark": "123456789"
+    },
+    {
+      "name": "QQ",
+      "icon": "qq.svg",
+      "line": "https://qq.com",
+      "remark": "123456789"
+    },
+    {
+      "name": "微信",
+      "icon": "weixin.svg",
+      "line": "https://qq.com",
+      "remark": "123456789"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github.svg",
+      "line": "https://github.com",
+      "remark": "123456789"
+    },
+    {
+      "name": "Gitee",
+      "icon": "gitee.svg",
+      "line": "https://gitee.com",
+      "remark": "123456789"
+    }
+  ],
+  "footer": [
+    "2024-2024",
+    "雨夜带刀不带伞",
+    "blog-template"
+  ]
+}

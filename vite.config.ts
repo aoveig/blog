@@ -25,7 +25,7 @@ export default defineConfig({
     Markdown({}),
     Pages({
       extensions: ["vue", "md"],
-      dirs: "pages/blog",
+      dirs: "pages",
       extendRoute(route) {
         const path = resolve(
           __dirname,
@@ -33,7 +33,8 @@ export default defineConfig({
         );
         const md = fs.readFileSync(path, "utf-8");
         const { data } = matter(md);
-        route.path = `/article${route.path}`;
+        const pathArr = route.path.split("/");
+        route.path = `/article/${pathArr[pathArr.length - 1]}`;
         return {
           ...route,
           meta: { ...data }
